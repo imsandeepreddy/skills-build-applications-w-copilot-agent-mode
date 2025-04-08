@@ -8,6 +8,7 @@ class Command(BaseCommand):
     help = 'Populate the database with test data for users, teams, activities, leaderboard, and workouts'
 
     def handle(self, *args, **kwargs):
+        # This script populates the database with test data for users, teams, activities, leaderboard, and workouts
         # Connect to MongoDB
         client = MongoClient(settings.DATABASES['default']['HOST'], settings.DATABASES['default']['PORT'])
         db = client[settings.DATABASES['default']['NAME']]
@@ -66,4 +67,4 @@ class Command(BaseCommand):
         ]
         db.workouts.insert_many(workouts)
 
-        self.stdout.write(self.style.SUCCESS('Successfully populated the database with test data.'))
+        self.stdout.write(self.style.SUCCESS('Successfully populated the database with test data for users, teams, activities, leaderboard, and workouts.'))
